@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	<!-- Create table ReserveVehical Query -->
+	<query id="create_ReserveVehical_table">
+        <![CDATA[
+            CREATE TABLE reserveVehical(
+				reservationID varchar(10) not null,
+				Name varchar(50),
+				address varchar(50),
+				pick_up_location varchar(50),
+				pick_date_time varchar(50),
+				return_location varchar(50) ,
+				return_date_and_time  varchar(50),
+				no_passenger varchar(50),				
+				primary key (reservationID)
+			)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE ReserveVehical Query -->
+	<query id="drop_table">
+         <![CDATA[        
+            DROP TABLE IF EXISTS reserveVehical 
+        ]]>
+	</query>
+
+	<!-- Select all ReserveVehical  Query -->
+	<query id="insert_ReserveVehical">
+        <![CDATA[
+          	insert into reserveVehical (reservationID, Name, address, pick_up_location, pick_date_time, return_location, return_date_and_time, no_passenger) 
+          	values (?, ?, ?, ?, ?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular ReserveVehical by id Query -->
+	<query id="ReserveVehical_by_id">
+         <![CDATA[        
+            select * from reserveVehical where reserveVehical.reservationID = ?
+        ]]>
+	</query>
+
+	<!-- Select all reserveVehical -->
+	<query id="all_ReserveVehical">
+         <![CDATA[        
+            select * from reserveVehical
+        ]]>
+	</query>
+
+	<!-- Delete a particular reserveVehical by id Query -->
+	<query id="remove_ReserveVehical">
+         <![CDATA[        
+            delete from reserveVehical where reserveVehical.reservationID = ?
+        ]]>
+	</query>
+	
+	<!-- Update a particular reserveVehical by id Query -->
+	<query id="update_ReserveVehical">
+         <![CDATA[        
+            update reserveVehical as e 
+            set e.Name = ?, e.address = ?, e.pick_up_location = ?, e.pick_date_time = ?, e.return_location = ?, e.return_date_and_time = ?, e.no_passenger = ? 
+            where e.reservationID = ?
+        ]]>
+	</query>
+	
+		<!-- Get RESERVATION IDs Query -->
+	<query id="ReserveVehical_ids">
+         <![CDATA[        
+            select e.reservationID from reserveVehical as e
+        ]]>
+	</query>
+
+</Querys>
